@@ -1,3 +1,19 @@
+// js for side navigation //
+
+const x = document.querySelector("#side-navbar");
+
+openNav = () =>{
+    x.style.transform = "translateX(0%)"
+    x.style.transitionDuration = "1s";
+}
+closeNav = () =>{
+    x.style.transform = "translate(-100%)";
+    x.style.transitionDuration = "1s";
+}
+
+
+// js for clock //
+
 const deg = 6
 const hr  = document.querySelector('#hr');
 const min = document.querySelector('#min');
