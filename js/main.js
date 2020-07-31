@@ -12,6 +12,7 @@ closeNav = () =>{
 }
 
 
+
 // js for clock //
 
 const deg = 6
@@ -30,3 +31,10 @@ setInterval(() => {
     sec.style.transform = `rotateZ(${ss}deg)`;
     
 })
+
+// js for dark-light theme //
+
+toggleClass = () =>{
+    const body = document.querySelector('body');
+    body.classList.toggle('light');
+}

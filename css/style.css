@@ -13,6 +13,16 @@ body
     position:relative;
 }
 
+/* // for light theme // */
+body.light{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #d1dae3;
+    position:relative;
+}
+
 /* // Side-navbar // */
 .side-navbar{
     background-color: #0b2936;
@@ -22,6 +32,9 @@ body
     top: 0;
     width: 250px;
     z-index: 10000;
+}
+body.light .side-navbar{
+    background-color: #777e85;
 }
 .side-navbar nav{
     display:flex;
@@ -45,6 +58,14 @@ body
     height: 10vh;
     width: 100%;
 }
+.side-navbar nav ul li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10%;
+    height: 10vh;
+    width: 200%;
+}
 .side-navbar nav ul li:hover{
     background-color: #091921;
     display: flex;
@@ -52,6 +73,17 @@ body
     align-items: center;
     width: 100%;
     transition: 0.5s ease-in-out;
+}
+body.light .side-navbar nav ul li:hover{
+    background-color: #d1dae3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: 0.5s ease-in-out;
+}
+body.light .side-navbar nav ul li a{
+    color: #091921;
 }
 .side-navbar nav ul li a{
     color: #fff;
@@ -97,6 +129,11 @@ body
   font-family: 'Orbitron', sans-serif;
   margin: 20%;
 }
+body.light .clock-name{
+    color: #091921;
+}
+
+
 .clock
 {
     width: 350px;
@@ -109,11 +146,20 @@ body
     background-size: cover;
     border: 4px solid #091921;
     border-radius: 50%;
-    box-shadow: 0 -15px 15px rgb(255,255,255,0.05),
-                inset 0 -15px 15px rgb(255,255,255,0.05),  
-                0 15px 15px rgb(0,0,0,0.3),
-                inset 0 15px 15px rgb(0,0,0,0.3);  
+    box-shadow: 0px -15px 15px rgba(255,255,255,0.05),
+                inset 0px -15px 15px rgba(255,255,255,0.05),  
+                0px 15px 15px rgba(0,0,0,0.3),
+                inset 0px 15px 15px rgba(0,0,0,0.3);  
 
+}
+body.light .clock{
+    background: #d1dae3 url('../images/clock.png');
+    background-size: cover;
+    border: 4px solid #cad3dc;
+    box-shadow: -8px -8px 15px rgba(225,225,225,0.5),
+                10px 10px 10px rgba(0, 0, 0, 0.3),
+                inset -8px -8px 15px rgba(225, 225, 225,0.5),
+                inset 10px 10px 10px rgba(0,0,0,0.3);
 }
 .clock::before
 {
@@ -124,6 +170,9 @@ body
     background: #fff;
     border-radius: 50%;
     z-index: 10000;
+}
+body.light .clock::before{
+    background: #008eff;
 }
 
 .clock .hour,
@@ -176,6 +225,9 @@ body
     border-radius: 6px 6px 0 0;
 
 }
+body.light .min:before{
+    background-color:#091921 ;
+}
 .sec:before
 {
     content: '';
@@ -187,8 +239,46 @@ body
     border-radius: 6px 6px 0 0;
 
 }
+body.light .sec:before{
+    background-color:#008eff;
+}
 
 /* dark-theam clock ------------------------>>>>>>> */
+
+
+/* // light theme - dark theme switcher // */
+.toggleClass{
+    position: absolute;
+    top: 25px;
+    right: 150px;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    font-family: 'Courgette';
+    border-radius: 50%;
+    background-color: #d1dae3;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.toggleClass:before{
+    position: absolute;
+    left: 25px;
+    content: 'Light Mode';
+    color: #d1dae3;
+    white-space: nowrap;
+}
+
+body.light .toggleClass{
+    background-color: #091921;
+    color: #091921;
+}
+
+body.light .toggleClass:before{
+    content: 'Dark Mode';
+    color: #091921;
+    
+}
 
 
 @media screen and (max-width:1200px){
@@ -210,8 +300,14 @@ body
         cursor: pointer;
 
     }
+    body.light .toggle-container{
+        color: #091921;
+    }
     .closebtn{
         display: block;
+    }
+    body.light .closebtn{
+        color: #091921;
     }
     .clock-name{
         transform: translateX(-20%);
