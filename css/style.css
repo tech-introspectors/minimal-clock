@@ -34,7 +34,7 @@ body.light{
     z-index: 10000;
 }
 body.light .side-navbar{
-    background-color: #777e85;
+    background-color: #959ca5;
 }
 .side-navbar nav{
     display:flex;
