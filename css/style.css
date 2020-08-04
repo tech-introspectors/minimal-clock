@@ -3,35 +3,40 @@
     padding: 0;
     box-sizing: border-box;
 }
-body
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #091921;
-    position:relative;
+html{
+    scroll-behavior: smooth;
+    transition: 0.5s;
 }
-
+body
+{   
+    background: #091921; 
+    overflow: hidden; 
+}
 /* // for light theme // */
 body.light{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     background: #d1dae3;
-    position:relative;
+   
 }
-
 /* // Side-navbar // */
-.side-navbar{
-    background-color: #0b2936;
-    height: 100vh;
+#nav-section{
     position: absolute;
-    left: 0;
-    top: 0;
     width: 250px;
-    z-index: 10000;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.side-navbar{
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #0b2936;
+    width: 250px;
+    height: 100vh;
+    float: left;
+    
 }
 body.light .side-navbar{
     background-color: #959ca5;
@@ -40,6 +45,8 @@ body.light .side-navbar{
     display:flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100vh;
 }
 .side-navbar nav ul{
     display: flex;
@@ -62,6 +69,10 @@ body.light .side-navbar{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: 'Orbitron';
     margin: 10%;
     height: 10vh;
     width: 200%;
@@ -74,246 +85,313 @@ body.light .side-navbar{
     width: 100%;
     transition: 0.5s ease-in-out;
 }
-body.light .side-navbar nav ul li:hover{
-    background-color: #d1dae3;
+.side-navbar a{
+    display: none;
+}
+
+/* // Minimal clock // */
+
+#clock-container{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    
+}
+.dark-theam-clock{
+    /* background-color: red; */
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: -1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    transition: 0.5s ease-in-out;
 }
-body.light .side-navbar nav ul li a{
-    color: #091921;
-}
-.side-navbar nav ul li a{
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.24rem;
-}
-.closebtn{
-    color: #155774;
-    font-size: 40px;
-    text-decoration: none;
-    font-weight: 600;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    display: none;
-}
-.closebtn:hover{
-    color: #118bc0;
-    font-size: 40px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.5s;
-}
-.toggle-container {
-    display: none;
-}
-
-
-/* Side-narbar ------------------->>>>>>> */
-
-
-/* // dark-theam clock // */
-.clock-name{
-  width: 350px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(15%);
-  margin-top: -15% !important;
-  color: #fff;
-  font-size: 2.5rem;
-  font-family: 'Orbitron', sans-serif;
-  margin: 20%;
-}
-body.light .clock-name{
-    color: #091921;
-}
-
-
-.clock
-{
+.dark-theam-clock .clock-name{
     width: 350px;
-    height: 350px;
+    position: absolute;
+    top: 60px;
     display: flex;
     justify-content: center;
     transform: translateX(35%);
-    align-items: center;
-    background: url('../images/clock.png');
-    background-size: cover;
-    border: 4px solid #091921;
-    border-radius: 50%;
-    box-shadow: 0px -15px 15px rgba(255,255,255,0.05),
-                inset 0px -15px 15px rgba(255,255,255,0.05),  
-                0px 15px 15px rgba(0,0,0,0.3),
-                inset 0px 15px 15px rgba(0,0,0,0.3);  
-
-}
-body.light .clock{
-    background: #d1dae3 url('../images/clock.png');
-    background-size: cover;
-    border: 4px solid #cad3dc;
-    box-shadow: -8px -8px 15px rgba(225,225,225,0.5),
-                10px 10px 10px rgba(0, 0, 0, 0.3),
-                inset -8px -8px 15px rgba(225, 225, 225,0.5),
-                inset 10px 10px 10px rgba(0,0,0,0.3);
-}
-.clock::before
-{
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: #fff;
-    border-radius: 50%;
-    z-index: 10000;
-}
-body.light .clock::before{
-    background: #008eff;
-}
-
-.clock .hour,
-.clock .minute,
-.clock .second
-{
-    position: absolute;
-}
-.clock .hour, .hr
-{
-    widows: 160px;
-    height: 160px;
-}
-.clock .minute, .min
-{
-    widows: 190px;
-    height: 190px;
-}
-.clock .second, .sec
-{
-    widows: 230px;
-    height: 230px;
-}
-.hr, .min, .sec
-{
-    display: flex;
-    justify-content: center;
-    /*align-items: center; */
-    position: absolute;
-    border-radius: 50%;
-}
-.hr:before
-{
-    content: '';
-    position: absolute;
-    width: 8px;
-    height: 80px;
-    background: #ff105e;
-    z-index: 10;
-    border-radius: 6px 6px 0 0;
-}
-.min:before
-{
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 90px;
-    background: #fff;
-    z-index: 11;
-    border-radius: 6px 6px 0 0;
-
-}
-body.light .min:before{
-    background-color:#091921 ;
-}
-.sec:before
-{
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 150px;
-    background: #fff;
-    z-index: 12;
-    border-radius: 6px 6px 0 0;
-
-}
-body.light .sec:before{
-    background-color:#008eff;
-}
-
-/* dark-theam clock ------------------------>>>>>>> */
-
-
-/* // light theme - dark theme switcher // */
-.toggleClass{
-    position: absolute;
-    top: 25px;
-    right: 150px;
-    width: 20px;
-    height: 20px;
-    font-size: 18px;
-    font-family: 'Courgette';
-    border-radius: 50%;
-    background-color: #d1dae3;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-.toggleClass:before{
-    position: absolute;
-    left: 25px;
-    content: 'Light Mode';
-    color: #d1dae3;
-    white-space: nowrap;
-}
-
-body.light .toggleClass{
-    background-color: #091921;
-    color: #091921;
-}
-
-body.light .toggleClass:before{
-    content: 'Dark Mode';
-    color: #091921;
+    margin-right: auto;
+    margin-left: auto;
+    /* border: 2px solid green; */
+    color: #fff;
+    font-size: 2.5rem;
+    font-family: 'Orbitron', sans-serif;
+  }
+  body.light .clock-name{
+      color: #091921;
+  }
+  
+  
+  .clock
+  {   
+      position: absolute;
+      top: 170px;
+      width: 350px;
+      height: 350px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(35%);
+      align-items: center;
+      background: url('../images/clock.png');
+      background-size: cover;
+      border: 4px solid #091921;
+      border-radius: 50%;
+      box-shadow: 0px -15px 15px rgba(255,255,255,0.05),
+                  inset 0px -15px 15px rgba(255,255,255,0.05),  
+                  0px 15px 15px rgba(0,0,0,0.3),
+                  inset 0px 15px 15px rgba(0,0,0,0.3);  
+  
+  }
+  body.light .clock{
+      background: #d1dae3 url('../images/clock.png');
+      background-size: cover;
+      border: 4px solid #cad3dc;
+      box-shadow: -8px -8px 15px rgba(225,225,225,0.5),
+                  10px 10px 10px rgba(0, 0, 0, 0.3),
+                  inset -8px -8px 15px rgba(225, 225, 225,0.5),
+                  inset 10px 10px 10px rgba(0,0,0,0.3);
+  }
+  .clock::before
+  {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: #fff;
+      border-radius: 50%;
+      z-index: 10000;
+  }
+  body.light .clock::before{
+      background: #008eff;
+  }
+  
+  .clock .hour,
+  .clock .minute,
+  .clock .second
+  {
+      position: absolute;
+  }
+  .clock .hour, .hr
+  {
+      widows: 160px;
+      height: 160px;
+  }
+  .clock .minute, .min
+  {
+      widows: 190px;
+      height: 190px;
+  }
+  .clock .second, .sec
+  {
+      widows: 230px;
+      height: 230px;
+  }
+  .hr, .min, .sec
+  {
+      display: flex;
+      justify-content: center;
+      /*align-items: center; */
+      position: absolute;
+      border-radius: 50%;
+  }
+  .hr:before
+  {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 80px;
+      background: #ff105e;
+      z-index: 10;
+      border-radius: 6px 6px 0 0;
+  }
+  .min:before
+  {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 90px;
+      background: #fff;
+      z-index: 11;
+      border-radius: 6px 6px 0 0;
+  
+  }
+  body.light .min:before{
+      background-color:#091921 ;
+  }
+  .sec:before
+  {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 150px;
+      background: #fff;
+      z-index: 12;
+      border-radius: 6px 6px 0 0;
+  
+  }
+  body.light .sec:before{
+      background-color:#008eff;
+  }
+  
+  /* //stop-watch-section // */
+  #stop-watch-container{
+        height: 100vh;
+        position: relative;
+        z-index: -1;
+    }
     
-}
-
-
-@media screen and (max-width:1200px){
-
-    .side-navbar{
-        transform: translateX(-100%);
+    .stop-watch-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #091921;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        /* background-color: green; */
+        
+    }
+    .stop-watch-container .heading{
+        color: #fff;
+        position: absolute;
+        top: 55px;
+        font-size: 2.5rem;
+        font-family: 'Orbitron', sans-serif;
+        transform: translateX(15%);
+    
+    }
+    .stop-watch-container .stop-watch{
+        color: #fff;
+        font-size: 1.5rem;
+        border: 2px solid #091921;
+        box-shadow: 0px -15px 15px rgba(255,255,255,0.05),
+                    inset 0px -15px 15px rgba(255,255,255,0.05), 
+                    0px 15px 15px rgba(0,0,0,0.3), 
+                    inset 0px 15px 15px rgba(0,0,0,0.3);
+        border-radius: 50%;
+        height: 340px;
+        width: 340px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(10%);
+    }
+    
+    .stop-watch-container .screen{
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2.4rem;
+        width: 270px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .stop-watch-container ul{
+        margin: 0;
+        padding: 0;
+    }
+    .stop-watch-container ul li{
+        list-style: none;
+        padding: 10px 0;
+    }
+    
+    .stop-watch-container .btn-container{
+        position: absolute;
+        right: 100px;
+        top:180px;
+    }
+    .stop-watch-container .btn-container .btn{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 340px;
+        width: 340px;
+    }
+    .stop-watch-container button{
+        padding: 15px 5px;
+        width: 70%;
+        margin: 10px;
+        border: none;
+        font-size: 1rem;
+        font-family: 'Orbitron', sans-serif;
+        cursor: pointer;
+        background-color: #091921;
+        box-shadow:inset 0px -15px 15px rgba(255,255,255,0.05), 
+                    0px 15px 15px rgba(0,0,0,0.3);
+        outline: none;
+    }
+    #start-btn, #stop-btn, #reset-btn{
+       color: #fff;
        
     }
-    .toggle-container {
-        display: block;
-        color:  rgb(4, 106, 165);
-        font-size: 35px;
-        width: 45px;
-        height: 30px;
-        margin-left: 10px;
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        cursor: pointer;
-
+    #start-btn:hover, #stop-btn:hover, #reset-btn:hover{
+        background-color: #0b2936;
+        transition: 0.5s;
     }
-    body.light .toggle-container{
-        color: #091921;
+    
+    @media screen and (max-width:1200px){
+        .toggle-container{
+            color: #0584ec;
+            font-size: 2rem;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        #nav-section{
+            transform: translateX(-100%);
+           
+        }
+        .side-navbar .closebtn{
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            text-decoration: none;
+            color: #016d9b;
+        }
+        .closebtn:hover{
+            color: #0584ec;
+        }
+        #clock-container{
+            transform: translateX(-10%);
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #stop-watch-section{
+            transform: translateX(0%);
+            /* border: 2px solid red; */
+            width: 100%;
+            height: 100vh;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .stop-watch-container .heading{
+            transform: translateX(-2%);
+        }
+        .stop-watch-container .btn-container{
+            position: absolute;
+            top: 64%;
+            left:auto;
+            right: auto;
+            bottom: 0;
+        }
+        .stop-watch-container .btn-container .btn{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            height: 340px;
+            width: 340px;
+        }
     }
-    .closebtn{
-        display: block;
-    }
-    body.light .closebtn{
-        color: #091921;
-    }
-    .clock-name{
-        transform: translateX(-20%);
-    }
-    .clock{
-        transform: translateX(0%);
-    }
-
-}
+    
+    
