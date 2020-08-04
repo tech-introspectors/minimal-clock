@@ -3,7 +3,7 @@
 var x  = document.querySelector('#nav-section');
 
 function openNav(){
-    console.log("you clicked");
+    console.log("you clicked")
 }
 function closeNav(){
     x.style.transform = "translate(0%)";
@@ -14,8 +14,8 @@ function closeNav(){
 
 const deg = 6
 const hr  = document.querySelector('#hr');
-const min = document.querySelector('#min');
-const sec = document.querySelector('#sec');
+const min1 = document.querySelector('#min');
+const sec1 = document.querySelector('#sec');
 
 setInterval(() => {
     let day = new Date();
@@ -24,8 +24,8 @@ setInterval(() => {
     let ss = day.getSeconds() * deg;
 
     hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
-    min.style.transform = `rotateZ(${mm}deg)`;
-    sec.style.transform = `rotateZ(${ss}deg)`;
+    min1.style.transform = `rotateZ(${mm}deg)`;
+    sec1.style.transform = `rotateZ(${ss}deg)`;
     
 })
 
