@@ -338,7 +338,7 @@ body.light .side-navbar{
         .toggle-container{
             color: #0584ec;
             font-size: 2rem;
-            position: absolute;
+            position: fixed;
             left: 20px;
             top: 20px;
             cursor: pointer;
