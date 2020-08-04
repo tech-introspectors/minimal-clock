@@ -10,7 +10,7 @@ html{
 body
 {   
     background: #091921; 
-    overflow: hidden; 
+    /* overflow: hidden;  */
 }
 /* // for light theme // */
 body.light{
