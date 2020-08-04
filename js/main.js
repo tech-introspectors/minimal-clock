@@ -48,7 +48,7 @@ var stopwatchElement = document.querySelector('#screen');
 var lapsContainer = document.querySelector('#laps');
 
 function start() {
-    timer = setInterval(run, 20);
+    timer = setInterval(run, 10);
 }
 
 function run(){
