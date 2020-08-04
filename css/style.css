@@ -10,7 +10,7 @@ html{
 body
 {   
     background: #091921; 
-    /* overflow: hidden;  */
+    overflow: hidden; 
 }
 /* // for light theme // */
 body.light{
@@ -23,8 +23,9 @@ body.light{
     width: 250px;
     height: 100vh;
     top: 0;
+    left: 0;
     bottom: 0;
-    z-index: 1;
+
 }
 .side-navbar{
     position: fixed;
@@ -87,6 +88,16 @@ body.light .side-navbar{
 }
 .side-navbar a{
     display: none;
+}
+ .toggle-container{
+    color: #0584ec;
+    font-size: 2rem;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 1;
+                   
 }
 
 /* // Minimal clock // */
@@ -335,17 +346,13 @@ body.light .side-navbar{
     }
     
     @media screen and (max-width:1200px){
-        .toggle-container{
-            color: #0584ec;
-            font-size: 2rem;
-            position: fixed;
-            left: 20px;
-            top: 20px;
-            cursor: pointer;
-            z-index: 1;
-        }
+       .toggle-container{
+           display: block;
+       }
         #nav-section{
             transform: translateX(-100%);
+            z-index: 2;
+            position: fixed;
            
         }
         .side-navbar .closebtn{

@@ -3,10 +3,12 @@
 var x  = document.querySelector('#nav-section');
 
 function openNav(){
-    console.log("you clicked")
+    x.style.transform = "translate(0%)";
+    x.style.transitionDuration = "1s";
 }
 function closeNav(){
-    x.style.transform = "translate(0%)";
+    x.style.transform = "translate(-100%)";
+    x.style.transitionDuration = "1s";
 }
 
 
