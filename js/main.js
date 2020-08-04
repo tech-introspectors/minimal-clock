@@ -1,16 +1,13 @@
 // js for side navigation //
 
-const x = document.querySelector("#side-navbar");
+var x  = document.querySelector('#nav-section');
 
-openNav = () =>{
-    x.style.transform = "translateX(0%)"
-    x.style.transitionDuration = "1s";
+function openNav(){
+    console.log("you clicked");
 }
-closeNav = () =>{
-    x.style.transform = "translate(-100%)";
-    x.style.transitionDuration = "1s";
+function closeNav(){
+    x.style.transform = "translate(0%)";
 }
-
 
 
 // js for clock //
@@ -37,4 +34,46 @@ setInterval(() => {
 toggleClass = () =>{
     const body = document.querySelector('body');
     body.classList.toggle('light');
+}
+
+
+// js for stop-watch //
+
+var min = 0, sec = 0, ms = 0;
+var timer;
+
+var stopwatchElement = document.querySelector('#screen');
+var lapsContainer = document.querySelector('#laps');
+
+function start() {
+    timer = setInterval(run, 20);
+}
+
+function run(){
+    stopwatchElement.textContent = (min < 10 ? "0" + min : min) + " : " + (sec < 10 ? "0" + sec : sec) + " : " + (ms < 10 ? "0" + ms : ms);
+    ms++;
+    if(ms == 100){
+        ms = 0;
+        sec++;
+    }
+    if(sec == 60){
+        sec = 0;
+        min++;
+    }
+}
+
+function stop(){
+    clearInterval(timer);
+    timer = false;
+}
+
+function reset(){
+    clearInterval(timer);
+    timer = false;
+    min = 0;
+    sec = 0;
+    ms = 0;
+    stopwatchElement.textContent = (min < 10 ? "0" + min : min) + " : " + (sec < 10 ? "0" + sec : sec) + " : " + (ms < 10 ? "0" + ms : ms);
+    
+
 }
